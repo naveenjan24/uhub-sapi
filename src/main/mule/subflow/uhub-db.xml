@@ -28,7 +28,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<sub-flow name="fetch-covid-case-by-national-id-sub-flow" doc:id="bda784d0-6f3e-44c9-91c4-c4252db1cef7" >
 		<logger level="INFO" doc:name="Start Log" doc:id="c5a8967b-2499-477b-8be5-1f5f6bd059b2" message='transactionID: #[vars.transactionId], correlationID: #[vars.correlationId], message: "Before fetch case by national id database call", payload: #[payload]' />
 		<db:select doc:name="Fetch case by national id" doc:id="315eca8e-88bc-45e4-bf36-870f117b919c" config-ref="Database_Config_UHUB">
-			<db:sql ><![CDATA[SELECT * FROM uhub.cvd_case_master where NATIONAL_ID= :national_id;]]></db:sql>
+			<db:sql ><![CDATA[SELECT * FROM cvd_case_master where NATIONAL_ID= :national_id;]]></db:sql>
 			<db:input-parameters ><![CDATA[#[{
 	national_id : vars.nationalID
 }]]]></db:input-parameters>
